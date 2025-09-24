@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SplitEase</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="/my-favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/my-favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/my-favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/my-favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="SplitEase" />
+    <link rel="manifest" href="/my-favicon/site.webmanifest" />
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div id="startScreen" class="start-screen">
+        <h1>SplitEase</h1>
+        <button id="startBtn" class="btn btn-primary">Start</button>
+    </div>
+
+    <div id="dashboard" class="dashboard">
+        <div class="header">
+            <img src="logo.jpg" alt="SplitEase Logo" class="header-logo">
+            <h1>SplitEase</h1>
+        </div>
+        <div class="main-content">
+            <div id="groupList" class="group-list"></div>
+            <div id="emptyDashboard" class="empty-state">
+                <h2>No group joined yet</h2>
+                <p>Create your first group to start tracking expenses</p>
+            </div>
+        </div>
+        <div id="createGroupFab" class="fab">＋</div>
+    </div>
+
+    <div id="groupView" class="group-view">
+        <div class="header">
+            <button id="backBtn" class="back-btn">←</button>
+            <h1 id="groupNameHeader">Group Name</h1>
+            <button id="editGroupBtn" class="action-btn">✎</button>
+        </div>
+        <div class="main-content">
+            <div id="expenseList" class="expense-list"></div>
+            <div class="balance-summary">
+                <h3>Balance Summary</h3>
+                <div id="balanceDetails"></div>
+            </div>
+        </div>
+        <div class="bottom-actions">
+            <div id="addExpenseBtn" class="action-btn">＋</div>
+            <div id="aiBtn" class="action-btn ai-btn">🤖</div>
+        </div>
+    </div>
+
+    <div id="createGroupModal" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>Create New Group</h2>
+                <button class="modal-close" id="closeCreateGroupModal">×</button>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="groupNameInput" placeholder="Group Name">
+                <input type="text" id="groupMembersInput" placeholder="Members (comma-separated)">
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelCreateGroup">Cancel</button>
+                <button class="btn btn-primary" id="saveGroup">Create Group</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="editGroupModal" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>Edit Group</h2>
+                <button class="modal-close" id="closeEditGroupModal">×</button>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="editGroupNameInput" placeholder="Group Name">
+                <input type="text" id="editGroupMembersInput" placeholder="Members (comma-separated)">
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelEditGroup">Cancel</button>
+                <button class="btn btn-primary" id="saveEditGroup">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="addExpenseModal" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>Add Expense</h2>
+                <button class="modal-close" id="closeAddExpenseModal">×</button>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="expenseDescription" placeholder="Description">
+                <input type="number" id="expenseAmount" placeholder="Amount">
+                <select id="paidBySelect">
+                    <option value="">Select Payer</option>
+                </select>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelAddExpense">Cancel</button>
+                <button class="btn btn-primary" id="saveExpense">Add Expense</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="aiOptionsModal" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>AI Assistant</h2>
+                <button class="modal-close" id="closeAiModal">×</button>
+            </div>
+            <div class="modal-body">
+                <div id="aiMessageContainer"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
